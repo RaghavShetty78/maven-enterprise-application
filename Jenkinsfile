@@ -26,9 +26,8 @@ pipeline {
 	}
         stage('docker-build') {
             steps {
-                sh "sudo docker build -t=""raghavshetty/maven-app:$BUILD_NUMBER .""
-                sh "sudo docker build -t=""raghavshetty/maven-app:latest .""
-            }
+                sh 'sudo docker build -t="raghavshetty/maven-app:$BUILD_NUMBER" .'
+                sh 'sudo docker build -t="raghavshetty/maven-app:latest" .'            }
         }
 	stage('Push') {
 	    steps {
