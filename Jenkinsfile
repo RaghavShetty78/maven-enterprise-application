@@ -30,17 +30,17 @@ pipeline {
                 sh "sudo docker build -t=""raghavshetty/maven-app:latest ."
             }
         }
-		stage('Push') {
-			  steps {
-				  sh "sudo docker push raghavshetty/maven-app:$BUILD_NUMBER"
-                  sh "sudo docker push raghavshetty/maven-app:latest"
-			  }
-		  }
+	stage('Push') {
+	    steps {
+		sh "sudo docker push raghavshetty/maven-app:$BUILD_NUMBER"
+                sh "sudo docker push raghavshetty/maven-app:latest"
+		}
+	}
+    }
     post {
-		always {
-			sh 'docker logout'
+	always {
+		sh 'docker logout'
 		}
 	}
 
-    }
 }
